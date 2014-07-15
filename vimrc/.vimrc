@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 
 " g:my_vim_dir is used elsewhere in my vim configurations
-let g:my_vimr_dir=expand("$HOME/.vim")
+let g:my_vim_dir=expand("$HOME/.vim")
 
 " $HOME/.vim and $HOME/.vim/after are in the &rtp on unix
 " But on windows they need to be added

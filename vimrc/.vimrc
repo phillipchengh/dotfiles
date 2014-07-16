@@ -1,57 +1,32 @@
 set nocompatible              " be iMproved, required
-
-" g:my_vim_dir is used elsewhere in my vim configurations
-let g:my_vim_dir=expand("$HOME/.vim")
-
-" $HOME/.vim and $HOME/.vim/after are in the &rtp on unix
-" But on windows they need to be added
-if has("wind16") || has("win32") || has("win64")
-    " Add g:my_vim_dir to the front of the runtimepath
-    execute "set rtp^=".g:my_vim_dir
-    " Add g:my_vim_dir\after to the end of the runtimepath
-    execute "set rtp+=".g:my_vim_dir."\\after"
-    " Note, pathogen#infect() looks for the 'bundle' folder in each path
-    " of the &rtp, where the last dir in the '&rtp path' is not 'after'. The
-    " <path>\bundle\*\ after folders will be added if and only if 
-    " the corresponding <path>\after folder is in the &rtp before 
-    " pathogen#infect() is called. So it is very important to add the above
-    " 'after' folder.
-    "
-    " Not necessary but I like to cleanup &rtp to use \ instead of /
-    " when on windows machines
-    let &rtp=substitute(&rtp, "[/]", "\\", "g")
-    " On windows, if called from cygwin or msys, the shell needs to be changed
-    " to cmd.exe to work with certain plugins that expect cmd.exe on windows
-    " vers of vim.
-    if &shell=~#'bash$'
-        set shell=$COMSPEC " Sets shell to correct path for cmd.exe
-    endif
-endif
-
 filetype off                  " required
 
+" g:my_vim_dir is used elsewhere in my vim configurations
+" let g:my_vim_dir=expand("$HOME/.vim")
+
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 " Mine
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mattn/emmet-vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'zenorocha/dracula-theme'
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'JulesWang/css.vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'matze/vim-move'
-Bundle 'mbbill/undotree'
-Bundle 'scrooloose/syntastic'
-Bundle 'sheerun/vim-polyglot'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'zenorocha/dracula-theme'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'JulesWang/css.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'matze/vim-move'
+Plugin 'mbbill/undotree'
+Plugin 'scrooloose/syntastic'
+Plugin 'sheerun/vim-polyglot'
 
 " All of your Plugins must be added before the following line
+call vundle#end()	     " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -64,6 +39,56 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+"
+set autoindent
+set autoread
+set binary
+set complete-=i
+set completeopt=menuone,preview
+set equalalways
+set expandtab
+set foldmethod=indent
+set foldnestmax=3
+set hidden
+set history=10000
+set ignorecase
+set incsearch
+set hlsearch
+set infercase
+set laststatus=2
+set lazyredraw
+set nobackup
+set nofoldenable
+set noswapfile
+set nowritebackup
+set number
+set numberwidth=4
+set ruler
+set scrolloff=3
+set shiftwidth=2
+set shortmess=atI
+set showcmd
+set showmatch
+set showtabline=2
+set sidescroll=1
+set sidescrolloff=15
+set smartcase
+set softtabstop=2
+set splitright
+set synmaxcol=1000
+set tabstop=2
+set textwidth=0
+set title
+set ttyfast
+set undodir='/tmp'
+set undofile
+set visualbell
+set whichwrap=b,s,h,l,<,>,[,],~
+set wildignore=.git,,*.o,*.a,*.class 
+set wildmenu
+set wildmode=longest,list
+set wrap linebreak textwidth=0
+
 map <C-n> :NERDTreeToggle<CR>
 let g:move_key_modifier = 'C'
 let g:syntastic_javascript_checkers = ['jshint']

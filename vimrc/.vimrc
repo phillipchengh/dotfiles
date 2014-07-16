@@ -1,12 +1,15 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" g:my_vim_dir is used elsewhere in my vim configurations
-" let g:my_vim_dir=expand("$HOME/.vim")
-
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if has("wind16") || has("win32") || has("win64")
+  set rtp+=~/vimfiles/bundle/Vundle.vim/
+  let path='~/vimfiles/bundle'
+  call vundle#begin(path)
+else
+  set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
+endif
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'

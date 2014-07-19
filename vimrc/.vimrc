@@ -27,6 +27,8 @@ Plugin 'matze/vim-move'
 Plugin 'mbbill/undotree'
 Plugin 'scrooloose/syntastic'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'bling/vim-airline'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()	     " required
@@ -95,10 +97,11 @@ set wrap linebreak textwidth=0
 map <C-n> :NERDTreeToggle<CR>
 let g:move_key_modifier = 'C'
 let g:syntastic_javascript_checkers = ['jshint']
+let g:airline_theme="base16"
 
 if has("gui_running")
   set background=dark
-  colorscheme Solarized
+  colorscheme solarized
   syntax on
   if has("gui_win32")
     set guifont=Consolas:h11:cANSI

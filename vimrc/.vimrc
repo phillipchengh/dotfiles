@@ -127,7 +127,7 @@ augroup vimrcEX
   au SourceCmd .vimrc set fdm=marker|AirlineRefresh
 augroup END
 
-map <C-n> :NERDTreeToggle<CR>
+map <space> :NERDTreeToggle<CR>
 let g:NERDTreeChDirMode=2
 let g:move_key_modifier = 'C'
 let g:syntastic_javascript_checkers = ['jshint']

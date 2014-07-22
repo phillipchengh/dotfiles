@@ -127,7 +127,7 @@ augroup vimrcEX
   au SourceCmd .vimrc set fdm=marker|AirlineRefresh
 augroup END
 
-map <space> :NERDTreeToggle<CR>
+noremap <space> :NERDTreeToggle<CR>
 let g:NERDTreeChDirMode=2
 let g:move_key_modifier = 'C'
 let g:syntastic_javascript_checkers = ['jshint']
@@ -137,6 +137,13 @@ call expand_region#custom_text_objects({
   \ 'ii': 0,
   \ 'ai': 0,
   \ })
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<c-f>'
+let g:multi_cursor_prev_key='<c-b>'
+let g:multi_cursor_skip_key='<c-x>'
+let g:goldenview__enable_default_mapping = 0
+let g:goldenview__enable_at_startup = 0
+nnoremap R :GoldenViewResize<cr>
 
 if has("gui_running")
   set background=dark
@@ -146,4 +153,4 @@ if has("gui_running")
     set guifont=Consolas:h11:cANSI
     set backspace=indent,eol,start
   endif
-endif
+  endif

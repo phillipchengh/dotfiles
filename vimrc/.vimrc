@@ -16,6 +16,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " Mine
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'altercation/vim-colors-solarized'
@@ -40,6 +41,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/IndexedSearch'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'zhaocai/GoldenView.vim'
+Plugin 'mileszs/ack.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()	     " required
@@ -114,29 +116,29 @@ augroup vimrcEX
   " Auto create parent directory on save if doesn't exist
   au BufWritePre * if expand("<afile>")!~#'^\w\+:/' && !isdirectory(expand("%:h")) | execute "silent! !mkdir -p ".shellescape(expand('%:h'), 1) | redraw! | endif
 
-   " Move to the last edited location
+  " Move to the last edited location
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-   " Resize splits when the window is resized
+  " Resize splits when the window is resized
   au VimResized * exe "normal! \<c-w>="
   au BufNewFile * set noeol
 
-   " Automatically reload vimrc when it's saved
+  " Automatically reload vimrc when it's saved
   au BufWritePost .vimrc source ~/.vimrc|set fdm=marker|AirlineRefresh
   au FileType vim set fdm=marker
   au SourceCmd .vimrc set fdm=marker|AirlineRefresh
 augroup END
 
-noremap <space> :NERDTreeToggle<CR>
+noremap <space> :NERDTreeTabsToggle<CR>
 let g:NERDTreeChDirMode=2
 let g:move_key_modifier = 'C'
 let g:syntastic_javascript_checkers = ['jshint']
 let g:airline_powerline_fonts = 1
 let g:airline_theme="base16"
 call expand_region#custom_text_objects({
-  \ 'ii': 0,
-  \ 'ai': 0,
-  \ })
+      \ 'ii': 0,
+      \ 'ai': 0,
+      \ })
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key='<c-f>'
 let g:multi_cursor_prev_key='<c-b>'
@@ -146,6 +148,10 @@ let g:goldenview__enable_default_mapping = 0
 let g:goldenview__enable_at_startup = 0
 nnoremap R :GoldenViewResize<cr>
 
+if has("wind16") || has("win32") || has("win64")
+  let g:nerdtree_tabs_open_on_gui_startup=0
+endif
+
 if has("gui_running")
   set background=dark
   colorscheme solarized
@@ -154,4 +160,6 @@ if has("gui_running")
     set guifont=Consolas:h11:cANSI
     set backspace=indent,eol,start
   endif
-  endif
+else
+  syntax enable
+endif

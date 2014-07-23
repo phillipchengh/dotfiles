@@ -23,7 +23,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'zenorocha/dracula-theme'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'JulesWang/css.vim'
-Plugin 'Lokaltog/vim-easymotion'
+" Plugin 'Lokaltog/vim-easymotion'
 Plugin 'matze/vim-move'
 Plugin 'mbbill/undotree'
 Plugin 'scrooloose/syntastic'
@@ -131,6 +131,7 @@ augroup END
 
 noremap <space> :NERDTreeTabsToggle<CR>
 let g:NERDTreeChDirMode=2
+" let NERDTreeIgnore=['\.bak$']
 let g:move_key_modifier = 'C'
 let g:syntastic_javascript_checkers = ['jshint']
 let g:airline_powerline_fonts = 1

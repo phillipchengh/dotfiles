@@ -147,6 +147,8 @@ let g:multi_cursor_quit_key='<Esc>'
 let g:goldenview__enable_default_mapping = 0
 let g:goldenview__enable_at_startup = 0
 nnoremap R :GoldenViewResize<cr>
+let g:ctrlp_working_path_mode='ra'
+let g:ctrlp_custom_ignore='\v[\/]\.(git|hg|svn)$'
 
 if has("wind16") || has("win32") || has("win64")
   let g:nerdtree_tabs_open_on_gui_startup=0

@@ -20,15 +20,12 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'zenorocha/dracula-theme'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'JulesWang/css.vim'
-" Plugin 'Lokaltog/vim-easymotion'
-Plugin 'matze/vim-move'
 Plugin 'mbbill/undotree'
 Plugin 'scrooloose/syntastic'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'bling/vim-airline'
+" Plugin 'bling/vim-airline'
 Plugin 'kana/vim-textobj-indent'
 Plugin 'kana/vim-textobj-line'
 Plugin 'kana/vim-textobj-user'
@@ -37,7 +34,6 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-commentary'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/IndexedSearch'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'zhaocai/GoldenView.vim'
@@ -75,8 +71,7 @@ set ignorecase
 set incsearch
 set hlsearch
 set infercase
-set laststatus=2
-set lazyredraw
+set laststatus=1
 set nobackup
 set nofoldenable
 set noswapfile
@@ -87,7 +82,6 @@ set ruler
 set scrolloff=3
 set shiftwidth=2
 set shortmess=atI
-set showcmd
 set showmatch
 set showtabline=2
 set sidescroll=1

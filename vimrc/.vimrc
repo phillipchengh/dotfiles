@@ -58,6 +58,7 @@ set autochdir
 set autoindent
 set autoread
 set binary
+set clipboard=unnamed
 set complete-=i
 set completeopt=menuone,preview
 set cursorline
@@ -144,6 +145,11 @@ let g:goldenview__enable_at_startup = 0
 nnoremap R :GoldenViewResize<cr>
 let g:ctrlp_working_path_mode='ra'
 let g:ctrlp_custom_ignore='\v[\/]\.(git|hg|svn)$'
+
+nmap <C-v> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+imap <C-v> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+nmap <C-c> :.w !pbcopy<CR><CR>
+vmap <C-c> :w !pbcopy<CR><CR>
 
 if has("wind16") || has("win32") || has("win64")
   let g:nerdtree_tabs_open_on_gui_startup=0
